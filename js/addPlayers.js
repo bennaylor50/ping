@@ -8,6 +8,9 @@ $(document).ready($ => {
 	let display = $("#display");
 	let error =$("#error");
 	let round= $("#round");
+	let winner =$("#winner")
+	let player1 = $("#player1");
+
 	
 	
 // shuffle function takes the store array and ranmadizes it.
@@ -18,7 +21,7 @@ $(document).ready($ => {
 		let counter =0;
 
 		if (length > 0 ){
-			if (length % 4 === 0){
+			if (length % 2 === 0){
 		    	store.sort((a, b)=> 0.5 - Math.random());
 				
 			    store.map((val,index) => {
@@ -27,12 +30,33 @@ $(document).ready($ => {
 		    	 		counter += 1;
 		    	 		
 			    	 	let games ="<h3>"+"Game"+" "+counter+"</h3>"+
-	    	 						"<p>"+ store[index] +" "+ "v"+ " "+store[index + 1] + "</p>";
+	    	 						"<p>"+ store[index] +" "+ "v"+ " "+store[index + 1] + "</p>"+" "+ "</p>"
+	    	 						+"<label>Winner:</label>"+" "+'<input type="radio" name="'+store[index]+' value="'+store[index]+'"><label>'+store[index]+'</label>'+" "+ 
+	    	 						'<input type="radio" name="'+store[index]+' value="'+store[index+1]+'"><label>'+store[index+1]+'</label>';
+	    	 
 			    	 				display.append(games);
 			    	}
-			    	 	
 			    });
-	    	} else throw document.getElementById('error').innerHTML=" You need to add more players";
+			  }
+
+			if (length % 2 !== 0){
+			    	store.push("buy");
+		    		store.sort((a, b)=> 0.5 - Math.random());
+				
+			    	store.map((val,index) => {
+
+		    	 	if (index % 2 === 0 || index === 0){
+		    	 		counter += 1;
+		    	 		
+			    	 	let games ="<h3>"+"Game"+" "+counter+"</h3>"+
+	    	 						"<p>"+ store[index] +" "+ "v"+ " "+store[index + 1] + "</p>"
+	    	 						+"<label>Winner:</label>"+" "+'<input type="radio" name="'+store[index]+' value="'+store[index]+'"><label>'+store[index]+'</label>'+" "+ 
+	    	 						'<input type="radio" name="'+store[index]+' value="'+store[index+1]+'"><label>'+store[index+1]+'</label>';
+			    	 				display.append(games);
+			    	}
+			     });
+			}
+			    	  
 		} else document.getElementById('error').innerHTML="Please enter players names";
 	}
 
