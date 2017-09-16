@@ -23,32 +23,33 @@ $(document).ready($ => {
 		    	// Games push to the index page, game number, the players names and 
 		    	//radio buttons to record the win. 
 		    	let games ="<h3>"+"Game"+" "+counter+"</h3>"+
-	    	 		'<input type="radio" name='+counter+' value="'+store[index]+'"><label>'+store[index]+'</label>'+" "+ "v"+ " " +
-	    	 		'<input type="radio" name='+counter+' value="'+store[index+1]+'"><label>'+store[index+1]+'</label>'
+	    	 		'<input type="radio" name='+store[index]+' value="'+store[index]+'"><label>'+store[index]+'</label>'+" "+ "v"+ " " +
+	    	 		'<input type="radio" name='+store[index]+' value="'+store[index+1]+'"><label>'+store[index+1]+'</label>'
 	    	 		//+'<input type="button" name="'+store[index]+' id="Winner" value="winner"/>';
 	    	 	display.append(games);
 	    	
 	    	 }
-	    	round.on("click",(event)=>{
-			event.preventDefault();
-			return nextRound();
-
-			});
+	    	
 		});
 
 	}
 	
 
 	let nextRound =() => {
-
-		document.getElementById("round").addEventListener("click", function() {
-	  		let cbChecked = document.querySelector('[name='+counter+']:checked')
-	  
-	  		if (cbChecked != null) {
-	    	winners.push(cbChecked.value)
-	    	}
-	    	console.log(winners)
-	  	});
+		
+		store.filter((val,index) => {
+			
+	
+			document.getElementById("round").addEventListener("click", function() {
+		  		let cbChecked = document.querySelector("[value="+store[index]+"]:checked")
+		
+		  		if (cbChecked != null) {
+		    	winners.push(cbChecked.value)
+		    	}
+		    	console.log(winners)
+		  	});
+		 });
+		
 	}
 
 // shuffle function takes the store array and ranmadizes it.
@@ -91,6 +92,7 @@ $(document).ready($ => {
 		event.preventDefault();
 			return shuffle(store);
 	});
+
 
 
 	
