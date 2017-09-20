@@ -12,7 +12,7 @@
 	
 <!-- Latest compiled and minified CSS -->
 
-
+	<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />-->
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 
 
@@ -21,17 +21,6 @@
 <body>
 
 	<h1>Tournamnet Ping Pong</h1>
-
-	<div class ="container">
-	
-		<form id= "addPlayers">
-			<input   type= "submit" name="submit" id = "submitPlayersName" value="Add Player">
-			<input class="form-control" type="text" name="text" id="text">
-		</form>
-
-		<ol class= "list"></ol>
-		
-	</div>
 
 	<div class ="conatainer">
 		<div>
@@ -42,17 +31,28 @@
 		</div>
 	</div>
 
-	<div class = "container">
+
+	<div class ="container">
+		<div class="form-group">
+			<form id= "addPlayers">
+				<input class="form-control" type="text" name="text" id="text" maxlength="20">
+				<input   type= "submit" name="submit" id = "submitPlayersName" value="Add Player" >
+			</form>
+		<div>
+
+		<ol class= "list"></ol>
+		
+	</div>
+
+	<div class ="container">
  
-		<button id= "start" >Start the tournament</button>
+		<button class="btn" id="start">Start the tournament</button>
 
 		<p id=error></p>
 		
 		<ul id="display"></ul>
 			
-		<button id= "round">Next Round</button>
-
-		<p id = "test"> </p>
+		<button class="btn" id="round">Next Round</button>
 	</div>
 
 
