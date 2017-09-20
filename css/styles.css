@@ -1,7 +1,18 @@
 body{
 	color:black;
 	font-size:14px;
-	text-align:center;
+	
 }
 
+.container #display .flex-container {
+    display: -webkit-flex;
+    display: inline-flex;
+   
+   
+ 
+  }
 
+  .flex-item {
+  	padding:10px;
+
+  }

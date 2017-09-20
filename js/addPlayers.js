@@ -1,12 +1,10 @@
 /* To do list 
 
-1. name validation,
-4. One click buttons, 
-next round buuton 
-5. refresh button
-
-7. name is not a number
-8. bye can not win 
+1. name validation, check name not aleardy in the array and does not start with a number 
+4. next round button only click able if radio buttons are sellected 
+5. refresh button, reload the page
+8. bye can not win (if statement for next round)
+9. maken first letter of name captail
 
 */
 
@@ -23,7 +21,7 @@ $(document).ready($ => {
 	let test =$("#test");
 	roundCounter =0;
 	rounds = 0;
-	number = 0;
+	indexNumber = 0;
 	indexErray = [];
 
 	// whichround dicded which header should displayed depending on the number of players before 
@@ -50,8 +48,10 @@ $(document).ready($ => {
 				let win = "<h1>"+"Winner"+"</h1>"+
 				"<h4>"+arr[0]+"<h4>"
 				display.append(win);
-			} else {
-			let err = "<p>Please enter a players names</p>" 
+
+		} else {
+
+			let err = "<p>Please enter a  players names</p>" 
 			return error.append(err);
 		}
 	}
@@ -60,13 +60,6 @@ $(document).ready($ => {
 		rounds += 1
 		length = arr.length;
 		
-			/*if( rounds >  1 && length === 1){
-
-			let win = "<h1>"+"Winner"+"</h1>"+
-				"<h4>"+arr[0]+"<h4>"
-				display.append(win);
-			}*/
-
 			if(length === 2){
 			let final ="<div>"+"<h1>"+"Final"+"</h1>"
 			display.append(final);
@@ -99,7 +92,6 @@ $(document).ready($ => {
 
 	//displayGames works out if a buy is requird the calls shufflePlayers Function 
 
-
 	//shufflePlayers assigs players to there groupings and displayes them on screen
 
 	let shufflePlayers =(array) =>{
@@ -109,22 +101,28 @@ $(document).ready($ => {
 
 		    if (index % 2 === 0 || index === 0){
 		    	roundCounter += 1;
-		    	number += 1;
-		    	indexErray.push(number);
+		    	indexNumber += 1;
+
+		    	indexErray.push(indexNumber);
 		    	console.log(indexErray);
 		    	
 		    	// Games push to the index page, game number, the players names and 
 		    	//radio buttons to record the win. 
+		    	
 		    	let games = 
 
-		    	"<div class=form-group>"+"<form>"+
-		    		"<h3>"+"Game"+" "+roundCounter+"</h3>"+
-	    	 		'<input type="radio" id='+(number)+' name='+array[index]+' value="'+array[index]+'">'+" "+'<label>'+array[index]+'</label>'+" "+ "v"+ " " +
-	    	 		'<input type="radio" id='+(number += 1)+' name='+array[index]+' value="'+array[index+1]+'">'+" "+'<label>' +" " +array[index+1]+'</label>'
-	    	 			+"</form>"+"</div>"//<input type="button" name="'+array[index]+' id="Winner" value="winner"/>';
-	    	 	display.append(games);
+		    	"<div class=flex-item>"+
+			    		"<h3>"+"Game"+" "+roundCounter+"</h3>"+
+		    	 		'<input type="radio" id='+(indexNumber)+' name='+array[index]+' value="'+array[index]+'">'+" "+'<label>'+array[index]+'</label>'+" "+ "v"+ " " +
+		    	 		'<input type="radio" id='+(indexNumber += 1)+' name='+array[index]+' value="'+array[index+1]+'">'+" "+'<label>' +" " +array[index+1]+'</label>'
+	    
+	    	 	+"</div>"
 
-	    	 	indexErray.push(number);
+	    	 	let total = "<div class = flex-container>" +games+"</div>"
+	    	 	display.append(total);
+	    	 	
+
+	    	 	indexErray.push(indexNumber);
 	    	 	console.log(indexErray);
 	    	}
 	    	
@@ -138,44 +136,46 @@ $(document).ready($ => {
 	
 	let nextRound =(arrs) => {
 		let winners= [];
-	
-		arrs.map((val,index) => {
 
-		  		let winRadio = document.querySelector("[name="+arrs[index]+"]:checked");
-		  	
-		
-		  		if (winRadio != null) {
-		    	 	 winners.push(winRadio.value)
-		    	 	 console.log(winners)
-		    	} 
-		    	
-		});
-
+	//add in check to see radio buttons have been sellected 
 		indexErray.map((val) => {
 
-			let rest = document.getElementById(val).checked = false;
-			let dis = document.getElementById(val).disabled = true;
+		  	let winRadio = document.getElementById(val);
+		
+	  			if (winRadio.checked){
+
+	    	 	 	winners.push(winRadio.value)
+	    	 	 	console.log(winners)
+
+	    	 	 	if (winners != []){
+	    	 	
+		    			let rest = document.getElementById(val).checked = false;
+						let dis = document.getElementById(val).disabled = true;
+
+						arrs = 0;
+		 				arrs = winners;
+		  				return displayGames(arrs);
+		  				console.log(arrs);
+	    	 	
+	    			} else {let tt = "<p>Please select a winner</p>"
+	    	 	 	error.append(tt)
+	    	 	 	}
+
+	    	 	}
 
 		});
 
-		arrs = 0;
-	 	arrs = winners;
-	  	return displayGames(arrs);
-	  	console.log(arrs);
+		
 
+				
 	}
 	//addPlayer click takes the inputs and display it a list and adds to an array, the array is the shuffled 
 	//and length measured.
 
 	addPlayer.on("click",(event) => {
 		 event.preventDefault();
-		 
 		
-		 	
 		if( input.val() !== "" ){
-
-			//store.filter(index =>
-				//if(input.val !== store[index]){
 
 					store.push(input.val());
 					store.sort((a, b)=> 0.5 - Math.random());
@@ -194,10 +194,15 @@ $(document).ready($ => {
 	});
 
 	// on click of start game which round function is called 
+	let startClick = 0;
 
 	startGame.on("click",(event) => {
+	
+		if (startClick < 1){
 		event.preventDefault();
+			startClick += 1;
 			return displayGames(store);
+		}
 	});
 
 	// on click of round the next round function is calleed
