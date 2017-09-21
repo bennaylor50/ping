@@ -1,18 +1,34 @@
 body{
+	font-family:'Work Sans', sans-serif;
+	font-size:100%;
 	color:black;
 	font-size:14px;
-	
+	text-align:center;
+}
+
+@font-face{
+	font-family:'kurale';
+	src:url(link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">)
+	format("truetype");
+}
+
+.ListContainer{
+ 	display: -webkit-flex;
+    display:flex-inline;
+   
+
 }
 
 .container #display .flex-container {
     display: -webkit-flex;
     display: inline-flex;
-   
-   
- 
+    
   }
+
 
   .flex-item {
   	padding:10px;
+  
+
 
   }

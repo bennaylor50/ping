@@ -13,6 +13,7 @@
 <!-- Latest compiled and minified CSS -->
 
 	<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />-->
+	<link rel="stylesheet" type="text/css" href="css/rest.css">
     <link rel="stylesheet" type="text/css" href="css/styles.css">
 
 
@@ -22,25 +23,26 @@
 
 	<h1>Tournamnet Ping Pong</h1>
 
-	<div class ="conatainer">
+	<section class ="howItWorks">
 		<div>
 			<h2>How it works</h2>
 			<p>Tournament Ping Pong is simple to use, enter the name of the players and see who you are going to play.</p>
 
 			
 		</div>
-	</div>
+	</section>
 
 
 	<div class ="container">
 	
 			<form id= "addPlayers">
-				<input  type="text" name="text" id="text" maxlength="20">
+				<input  type="text" name="text" id="text" maxlength="8">
 				<input   type= "submit" name="submit" id = "submitPlayersName" value="Add Player" >
 			</form>
 		
-
-		<ol class= "list"></ol>
+			<div listContainer>
+				<ol class= "list"></ol>
+			</div>
 		
 	</div>
 
@@ -48,9 +50,10 @@
  
 		<button class="btn" id="start">Start the tournament</button>
 
-		<p id=error></p>
+		<p id=errorOne></p>
+		<p id=errorTwo></p>
 		
-		<ul id="display"></ul>
+		<form id="display"></form>
 			
 		<button class="btn" id="round">Next Round</button>
 	</div>

@@ -1,10 +1,10 @@
 /* To do list 
 
-1. name validation, check name not aleardy in the array and does not start with a number 
-4. next round button only click able if radio buttons are sellected 
+
 5. refresh button, reload the page
-8. bye can not win (if statement for next round)
+8.
 9. maken first letter of name captail
+10.errors 
 
 */
 
@@ -68,21 +68,21 @@ $(document).ready($ => {
 			}
 
 			if(length === 4){
-			let semiFinal ="<div>"+"<h1>"+"SemiFinal"+"</h1>"
+			let semiFinal ="<div>"+"<h1>"+"Semi Final"+"</h1>"
 			display.append(semiFinal);
 
 			return shufflePlayers(arr);
 			}
 
 			if(length === 6 || length === 8){
-			let quaterFinal="<div>"+"<h1>"+"QuaterFinal"+"</h1>"
+			let quaterFinal="<div>"+"<h1>"+"Quater Final"+"</h1>"
 			display.append(quaterFinal);
 
 			return shufflePlayers(arr);
 			}
 
 			if(length > 8){
-			let rou ="<div>"+"<h1>"+"Round"+rounds+"</h1>"
+			let rou ="<div>"+"<h1>"+"Round"+" "+rounds+"</h1>"
 			display.append(rou);
 
 			return shufflePlayers(arr);
@@ -104,7 +104,6 @@ $(document).ready($ => {
 		    	indexNumber += 1;
 
 		    	indexErray.push(indexNumber);
-		    	console.log(indexErray);
 		    	
 		    	// Games push to the index page, game number, the players names and 
 		    	//radio buttons to record the win. 
@@ -123,7 +122,7 @@ $(document).ready($ => {
 	    	 	
 
 	    	 	indexErray.push(indexNumber);
-	    	 	console.log(indexErray);
+	    	 	
 	    	}
 	    	
 		});
@@ -136,59 +135,75 @@ $(document).ready($ => {
 	
 	let nextRound =(arrs) => {
 		let winners= [];
-
-	//add in check to see radio buttons have been sellected 
+		let counterOne =[];
+		let counterTwo= [];5
 		indexErray.map((val) => {
 
 		  	let winRadio = document.getElementById(val);
-		
-	  			if (winRadio.checked){
 
-	    	 	 	winners.push(winRadio.value)
-	    	 	 	console.log(winners)
+			counterOne.push(winRadio);
 
-	    	 	 	if (winners != []){
-	    	 	
-		    			let rest = document.getElementById(val).checked = false;
-						let dis = document.getElementById(val).disabled = true;
+			if(winRadio.disabled){
 
-						arrs = 0;
-		 				arrs = winners;
-		  				return displayGames(arrs);
-		  				console.log(arrs);
-	    	 	
-	    			} else {let tt = "<p>Please select a winner</p>"
-	    	 	 	error.append(tt)
-	    	 	 	}
+				counterTwo.push(winRadio.value);
+			}
 
-	    	 	}
+	  		if (winRadio.checked){
 
+  				if (winRadio.value !== "bye"){
+
+	    	 	 	winners.push(winRadio.value);
+	    	 	 	
+				}
+    	 	}
 		});
+	
+		//prevents the next round button being pressed if all winners are not selected
 
-		
+		if ((counterOne.length-counterTwo.length)/2 == winners.length ){
 
+			indexErray.map((val) => {
+
+			   	let rest = document.getElementById(val).checked = false;
+				let dis = document.getElementById(val).disabled = true;
+
+			});
 				
-	}
-	//addPlayer click takes the inputs and display it a list and adds to an array, the array is the shuffled 
+			arrs = 0;
+			arrs = winners;
+			
+			return displayGames(arrs);
+
+			
+	    }	
+		
+	}	
+	//addPlayer takes the inputs and display it a list and adds to an array, the array is the shuffled 
 	//and length measured.
+
+
 
 	addPlayer.on("click",(event) => {
 		 event.preventDefault();
+
+	
 		
 		if( input.val() !== "" ){
 
+			
+
+				if(store.indexOf(input.val()) == -1){
+
 					store.push(input.val());
 					store.sort((a, b)=> 0.5 - Math.random());
-					
-					console.log(length);
 
 				 	let item = input.val();
-				 	let li = "<li>" + item + "</li>";
+				 	let li = "<li class=flex-item>" + item + "</li>";
 				 	list.append(li);
 				 	input.val("");
 				 	console.log(store)
-			 	//}
-			//)
+				}	
+				
 		}
 		
 	});
