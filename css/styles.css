@@ -1,34 +1,116 @@
 body{
-	font-family:'Work Sans', sans-serif;
-	font-size:100%;
+	font-family:'roboto';
+	font-size:90%;
 	color:black;
 	font-size:14px;
 	text-align:center;
+	margin:0px;
+
 }
 
 @font-face{
-	font-family:'kurale';
-	src:url(link href="https://fonts.googleapis.com/css?family=Work+Sans" rel="stylesheet">)
+	font-family:'roboto';
+	src:url(<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">)
 	format("truetype");
 }
 
-.ListContainer{
- 	display: -webkit-flex;
-    display:flex-inline;
-   
+.headerMain{
+	background-image:url("../images/tt_two.jpg");
+	margin:0px;
+	padding:1em;
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:#FFFFFF;
+}
+
+.headerMain h1{
+	font-size:5em;
+	padding-top:1em;
+}
+
+.headerMain h2{
+	font-size:2em;
+	padding-bottom:1em;
+}
+
+.nameInput{
+	
+	font-size:2em;
+	border-radius: 10px;
+}
+
+.listPlayers{
+	 display: -webkit-flex;
+	 display: inline-flex;
+	 font-size:2em;
+}
+
+.nameSubmit{
+	margin:10px;
+	color:white;
+	background-color: black;
+	border-radius: 3px;
+	border:solid 5px black;
+	font-size:1em;
+}
+
+.btn{
+	background-color:black;
+	color:white;
+	font-size:1em;
+	border-radius: 3px;
+	border:solid 5px black;
 
 }
 
-.container #display .flex-container {
+.refresh{
+	background-color:black;
+	color:white;
+	font-size:1em;
+	border-radius: 3px;
+	border:solid 7px black;
+}
+
+.tournament #display .flex-container {
     display: -webkit-flex;
     display: inline-flex;
-    
+    padding:10px;
+ }
+
+.tournament #display .flex-container .flex-item {
+  	padding:0px 10px 20px 0px ;
+  	margin:10px;
   }
 
+#display  h1{
+	font-size:3em;
+ }
 
-  .flex-item {
-  	padding:10px;
-  
+label{
+	font-size:2em;
+}
+
+form{
+	padding:2em;
+}
+
+h3, h4{
+	font-size:2em;
+}
 
 
-  }
+@media only screen and (max-width: 560px) {
+
+  	body{
+  		font-size:80%;
+  	}
+
+@media only screen and (max-width: 360px) {
+
+  	body{
+  		font-size:60%;
+  	}
+
+
+

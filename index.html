@@ -1,69 +1,78 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+	<title>Tournament Ping Pong</title>
 	<meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="Tournament Ping Pong" content="">
+    <meta name="description" content="Tournament ping pong provides users with a simple and easy to way to create tournaments no matter the number of players">
+    <meta name = "keywords" content= "Table Tennis, Ping Pong, Tournament Planner, Table Tennis Tournament, Ping Pong Tournament, Tournament Ping Pong, Tournament Table Tennis, Tournament">
+    <meta name ="author" content="Ben Naylor">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+
+     <link rel="stylesheet" type="text/css" href="css/styles.css">
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!-- Global Site Tag (gtag.js) - Google Ads -->
+    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+		<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<script>
+	  (adsbygoogle = window.adsbygoogle || []).push({
+	    google_ad_client: "ca-pub-1761059748663466",
+	    enable_page_level_ads: true
+	  });
+	</script>
+
+	<!-- Global Site Tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-106834038-1"></script>
+	<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments)};
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-106834038-1');
+	</script>
 
 	
-<!-- Latest compiled and minified CSS -->
-
-	<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />-->
-	<link rel="stylesheet" type="text/css" href="css/rest.css">
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-
-
-	<title>Tournament Ping Pong</title>
 </head>
-<body>
+	<body>
+		<main>
+			<header class= "headerMain">
 
-	<h1>Tournamnet Ping Pong</h1>
+				<h1>Tournament Ping Pong</h1>
+				<h2>Find your route to the final!</h2>
 
-	<section class ="howItWorks">
-		<div>
-			<h2>How it works</h2>
-			<p>Tournament Ping Pong is simple to use, enter the name of the players and see who you are going to play.</p>
+				<div class ="inputPlayes">
+				
+						<form id= "addPlayers">
+							<input  class ="nameInput" type="text" name="text" id="text" maxlength="8"><br/>
 
-			
-		</div>
-	</section>
+							<input  class= "nameSubmit" type= "submit" name="submit" id = "submitPlayersName" value="Add Player" >
+						</form>
 
+				</div>
+			</header>
 
-	<div class ="container">
-	
-			<form id= "addPlayers">
-				<input  type="text" name="text" id="text" maxlength="8">
-				<input   type= "submit" name="submit" id = "submitPlayersName" value="Add Player" >
-			</form>
-		
-			<div listContainer>
-				<ol class= "list"></ol>
+			<div class="listPlayers">
+					<ol class= "list"></ol>
 			</div>
-		
-	</div>
+					
+			<div class ="tournament">
+		 
+				<button class="btn" id="start">Start the tournament</button>
+				
+				<form id="display"></form>
+					
+				<button class="btn" id="round">Next Round</button>
 
-	<div class ="container">
- 
-		<button class="btn" id="start">Start the tournament</button>
+				<a class="refresh" href="https://www.tournamentpingpong.com">Refresh</a>
+			</div>
 
-		<p id=errorOne></p>
-		<p id=errorTwo></p>
-		
-		<form id="display"></form>
-			
-		<button class="btn" id="round">Next Round</button>
-	</div>
-
-
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="js/addPlayers.js"></script>
-</body>
+			<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		    <script src="js/addPlayers.js"></script>
+		 </main>
+	</body>
 </html>
 
 
-</body>
-</html>
+
