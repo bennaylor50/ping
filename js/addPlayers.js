@@ -16,14 +16,12 @@ $(document).ready($ => {
 
 	let pageScroll =() => {
 	    window.scrollBy(0,100);
-	}
+	};
 
 	String.prototype.capitalize = function() {
     return this.charAt(0).toUpperCase() + this.slice(1);
-	}
-	// whichround dicded which header should displayed depending on the number of players before 
-	//calling displayGames function
-
+	};
+	
 	//displayGames works out if a bye is requird the calls shufflePlayers Function
 
 	let displayGames = (arr) =>{
@@ -41,8 +39,9 @@ $(document).ready($ => {
 
 	    		return whichRound(arr)
 			}
-		    	  	
+		  	
 		} 
+
 		else if( rounds >  1 && length === 1){
 			let win = "<h1>"+"Winner"+"</h1>"+
 			"<h4>"+arr[0]+"<h4>";
@@ -111,8 +110,7 @@ $(document).ready($ => {
 					    		"<h3>"+"Game"+" "+roundCounter+"</h3>"+
 				    	 		'<input type="radio" id='+(indexNumber)+' name='+array[index]+' value="'+array[index]+'">'+" "+'<label>'+array[index]+" "+"v"+'</label>'+" "+ " " +
 				    	 		'<input type="radio" id='+(indexNumber += 1)+' name='+array[index]+' value="'+array[index+1]+'">'+" "+'<label>' +" " +array[index+1]+'</label>'
-		    
-		    	 			+"</div>"
+		    	 			+"</div>";
 
 	    	 	let total = "<div class = flex-container>" +games+"</div>";
 	    	 	display.append(total);
@@ -147,7 +145,6 @@ $(document).ready($ => {
   				if (winRadio.value !== "bye"){
 
 	    	 	 	winners.push(winRadio.value);
-	    	 	 	
 				}
     	 	}
 		});
