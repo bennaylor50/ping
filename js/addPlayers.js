@@ -44,17 +44,17 @@ $(document).ready($ => {
 		    	  	
 		} 
 		else if( rounds >  1 && length === 1){
-				let win = "<h1>"+"Winner"+"</h1>"+
-				"<h4>"+arr[0]+"<h4>"
-				display.append(win);
-				return pageScroll();
+			let win = "<h1>"+"Winner"+"</h1>"+
+			"<h4>"+arr[0]+"<h4>";
+			display.append(win);
+			return pageScroll();
 
 		} else {
 
-			let err = "<p>Please enter a  players names</p>" 
+			let err = "<p>Please enter a  players names</p>";
 			return error.append(err);
 		}
-	}
+	};
 
 	// whichround decides the round title  
 
@@ -63,34 +63,34 @@ $(document).ready($ => {
 		length = arr.length;
 		
 		if(length === 2){
-		let final ="<div>"+"<h1>"+"Final"+"</h1>"
-		display.append(final);
+			let final ="<div>"+"<h1>"+"Final"+"</h1>";
+			display.append(final);
 
-		return shufflePlayers(arr);
+			return shufflePlayers(arr);
 		}
 
 		if(length === 4){
-		let semiFinal ="<div>"+"<h1>"+"Semi Final"+"</h1>"
-		display.append(semiFinal);
+			let semiFinal ="<div>"+"<h1>"+"Semi Final"+"</h1>";
+			display.append(semiFinal);
 
-		return shufflePlayers(arr);
+			return shufflePlayers(arr);
 		}
 
 		if(length === 6 || length === 8){
-		let quaterFinal="<div>"+"<h1>"+"Quater Final"+"</h1>"
-		display.append(quaterFinal);
+			let quaterFinal="<div>"+"<h1>"+"Quater Final"+"</h1>";
+			display.append(quaterFinal);
 
-		return shufflePlayers(arr);
+			return shufflePlayers(arr);
 		}
 
 		if(length > 8){
-		let rou ="<div>"+"<h1>"+"Round"+" "+rounds+"</h1>"
-		display.append(rou);
+			let rou ="<div>"+"<h1>"+"Round"+" "+rounds+"</h1>";
+			display.append(rou);
 
-		return shufflePlayers(arr);
+			return shufflePlayers(arr);
 		}
 		
-	}
+	};
 
 	//shufflePlayers assigs players to  groupings and displays them on screen
 
@@ -107,28 +107,23 @@ $(document).ready($ => {
 		    	// Games push to the index page, game number, the players names and 
 		    	//radio buttons to record the win. 
 		    	
-		    	let games = 
+		    	let games = "<div class=flex-item>"+
+					    		"<h3>"+"Game"+" "+roundCounter+"</h3>"+
+				    	 		'<input type="radio" id='+(indexNumber)+' name='+array[index]+' value="'+array[index]+'">'+" "+'<label>'+array[index]+" "+"v"+'</label>'+" "+ " " +
+				    	 		'<input type="radio" id='+(indexNumber += 1)+' name='+array[index]+' value="'+array[index+1]+'">'+" "+'<label>' +" " +array[index+1]+'</label>'
+		    
+		    	 			+"</div>"
 
-		    	"<div class=flex-item>"+
-			    		"<h3>"+"Game"+" "+roundCounter+"</h3>"+
-		    	 		'<input type="radio" id='+(indexNumber)+' name='+array[index]+' value="'+array[index]+'">'+" "+'<label>'+array[index]+" "+"v"+'</label>'+" "+ " " +
-		    	 		'<input type="radio" id='+(indexNumber += 1)+' name='+array[index]+' value="'+array[index+1]+'">'+" "+'<label>' +" " +array[index+1]+'</label>'
-	    
-	    	 	+"</div>"
-
-	    	 	let total = "<div class = flex-container>" +games+"</div>"
+	    	 	let total = "<div class = flex-container>" +games+"</div>";
 	    	 	display.append(total);
-	    	 	
 
 	    	 	indexErray.push(indexNumber);
-
-
 	    	 	
 	    	}
 	    return pageScroll();
 	    	
 		});
-	}
+	};
 
 	//nextRound collects winners and disbales radio buttons 
 	
@@ -174,7 +169,7 @@ $(document).ready($ => {
 			return displayGames(arrs);
 	    }	
 		
-	}	
+	};	
 
 
 	//addPlayer takes the inputs and display it as list and adds them to an array, the array is then shuffled 
@@ -207,7 +202,7 @@ $(document).ready($ => {
 	startGame.on("click",(event) => {
 	
 		if (startClick < 1){
-		event.preventDefault();
+			event.preventDefault();
 			startClick += 1;
 			return displayGames(store);
 		}
@@ -216,7 +211,7 @@ $(document).ready($ => {
 	// round the next round function is called
 	round.on("click",(event)=>{
 		event.preventDefault();
-			return nextRound(store);
+		return nextRound(store);
 	});
 });
 
