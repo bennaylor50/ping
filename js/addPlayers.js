@@ -9,6 +9,7 @@ $(document).ready($ => {
 	let error =$("#error");
 	let round= $("#round");
 	let test =$("#test");
+	let refresh =$("#refresh");
 	roundCounter =0;
 	rounds = 0;
 	indexNumber = 0;
@@ -210,5 +211,12 @@ $(document).ready($ => {
 		event.preventDefault();
 		return nextRound(store);
 	});
+
+	//refresh the page
+	refresh.on("click",(event)=>{
+		event.preventDefault();
+		return location.reload(true)
+	});
+
 });
 
